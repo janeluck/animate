@@ -17,6 +17,23 @@ const Simple = React.createClass({
     componentDidMount() {
 
     },
+    handleDivClick(e){
+        // http://velocityjs.org/#beginAndComplete
+        velocity(e.target, {opacity: 0.5}, {
+            duration: 1000,
+            begin: ()=>{
+                alert('begin!')
+            },
+            progress: ()=>{
+                alert('progress!')
+            },
+            complete: ()=>{
+                alert('complete!')
+            },
+            delay: 3000
+
+        })
+    },
     onClick(e) {
 
         this.setState({
@@ -34,7 +51,7 @@ const Simple = React.createClass({
             margin: 10,
         };
         return (<div >
-            <p>animate基础用法： 子元素移除时的fade效果</p>
+            <p>animate Simple用法： showProp控制子元素显示隐藏的动画效果</p>
             <button onClick={this.onClick}>click me to fade</button>
             <Animate transitionName="fade"
                      showProp='data-show'
@@ -44,9 +61,14 @@ const Simple = React.createClass({
                 </div>
             </Animate>
             <Animate transitionName="fade">
-                {this.state.visible ? (<div key="1" style={style} data-show={this.state.visible}></div>) : null}
+                {this.state.visible ? (<div key="1" style={style} ></div>) : null}
 
             </Animate>
+
+
+            <div onClick={this.handleDivClick} style={{background: 'black', color: 'red'}}>
+                Velocity
+            </div>
         </div>);
     },
 });
