@@ -4,6 +4,8 @@ import './assets/index.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
+import velocity from 'velocity-animate';
+
 
 const Simple = React.createClass({
     getInitialState() {
