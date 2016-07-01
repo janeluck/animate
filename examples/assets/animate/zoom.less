@@ -1,0 +1,57 @@
+@ease-in-out-circ    : cubic-bezier(0.71, -0.46, 0.29, 1.46);
+@ease-out-circ       : cubic-bezier(0.08, 0.82, 0.17, 1);
+
+.zoom-enter {
+
+  .motion-common();
+  transform: scale(0); // need this by yiminghe
+  animation-timing-function: @ease-out-circ;
+}
+
+.zoom-appear {
+
+  .motion-common();
+  transform: scale(0); // need this by yiminghe
+  animation-timing-function: @ease-out-circ;
+}
+
+.zoom-leave {
+  .motion-common();
+  animation-timing-function: @ease-in-out-circ;
+  animation-play-state: paused;
+}
+
+.zoom-enter.zoom-enter-active {
+  animation-name: zoomIn;
+  animation-play-state: running;
+}
+
+.zoom-appear.zoom-appear-active {
+  animation-name: zoomIn;
+  animation-play-state: running;
+}
+
+.zoom-leave.zoom-leave-active {
+  animation-name: zoomOut;
+  animation-play-state: running;
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}

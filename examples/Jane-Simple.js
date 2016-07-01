@@ -73,6 +73,10 @@ const Simple = React.createClass({
                 {this.state.visible ? (<div key="1" style={style} >transitionLeave:false</div>) : null}
 
             </Animate>
+            <Animate transitionName="zoom"  >
+                {this.state.visible ? (<div key="1" style={style} transitionAppear >zoom</div>) : null}
+
+            </Animate>
 
 
             <div onClick={this.handleDivClick} style={{background: 'black', color: 'red'}}>
