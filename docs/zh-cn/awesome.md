@@ -12,3 +12,4 @@
 ### 自定义参数animation
 ### transitionAppear, transitionEnter, transitionLeave 
 ### 自定制transitionName(eg: animate/zoom.less)
+### boring
