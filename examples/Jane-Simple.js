@@ -24,13 +24,13 @@ const Simple = React.createClass({
         velocity(e.target, {opacity: 0.5}, {
             duration: 1000,
             begin: ()=>{
-                alert('begin!')
+                console.log('begin!')
             },
             progress: ()=>{
-                alert('progress!')
+                console.log('progress!')
             },
             complete: ()=>{
-                alert('complete!')
+                console.log('complete!')
             },
             delay: 3000
 
@@ -57,7 +57,8 @@ const Simple = React.createClass({
             <button onClick={this.onClick}>click me to fade</button>
             <Animate transitionName="fade"
                      showProp='data-show'
-                     onEnd={()=>{alert(2)}}>
+                     transitionAppear
+                     onEnd={()=>{console.log(2)}}>
                 <div style={style}   data-show={this.state.visible}>
                     best of me
                 </div>
