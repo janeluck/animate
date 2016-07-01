@@ -47,7 +47,7 @@ const Simple = React.createClass({
     render() {
         const style = {
             display: !!this.state.visible ? 'block' : 'none',
-            width: 100,
+            width: 200,
             border: '1px solid red',
             padding: 10,
             margin: 10,
@@ -58,13 +58,19 @@ const Simple = React.createClass({
             <Animate transitionName="fade"
                      showProp='data-show'
                      transitionAppear
+
                      onEnd={()=>{console.log(2)}}>
                 <div style={style}   data-show={this.state.visible}>
                     best of me
                 </div>
             </Animate>
-            <Animate transitionName="fade">
+            <Animate transitionName="fade" >
                 {this.state.visible ? (<div key="1" style={style} ></div>) : null}
+
+            </Animate>
+
+            <Animate transitionName="fade"  transitionLeave={false}>
+                {this.state.visible ? (<div key="1" style={style} >transitionLeave:false</div>) : null}
 
             </Animate>
 
